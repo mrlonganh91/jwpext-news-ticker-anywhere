@@ -39,7 +39,7 @@ $button_id = '-' . substr( md5( $hasher->get_random_bytes( 32 ) ), 2 );
 			echo '<h2>'.esc_html($news_ticker_attr['title']).'</h2>';	
 		}
 	?>
-	<div class="jwext-news-demo3 jwext-news-control-but" id="<?php echo $button_id;?>">
+	<div class="jwext-news-demo3 jwext-news-control-but" id="<?php echo esc_html($button_id);?>">
 		<ul>
 			<?php 
 			$i=0;
@@ -56,16 +56,16 @@ $button_id = '-' . substr( md5( $hasher->get_random_bytes( 32 ) ), 2 );
 			</li>
 			<?php $i++;}?>
 		</ul>
-		<div class="jwext-news-navi <?php echo $controll_button;?>">
-			<span class="<?php echo 'btnDown'.$button_id;?>"></span>			
-			<span class="<?php echo 'btnUp'.$button_id;?>"></span>
+		<div class="jwext-news-navi <?php echo esc_html($controll_button);?>">
+			<span class="<?php echo 'btnDown'.esc_html($button_id);?>"></span>			
+			<span class="<?php echo 'btnUp'.esc_html($button_id);?>"></span>
 		</div>
 	</div>
 </div>
 
 <script>
 jQuery(document).ready(function($) {
-	jQuery('#'+'<?php echo $button_id;?>').easyTicker({
+	jQuery('#'+'<?php echo esc_html($button_id);?>').easyTicker({
 		direction: '<?php echo esc_html($news_ticker_attr['direction']);?>',
 		easing: 'swing',
 		visible: '1',
@@ -75,8 +75,8 @@ jQuery(document).ready(function($) {
 		mousePause: <?php echo esc_html($mouse_pause);?>,
         autoplay: <?php echo esc_html($auto_play);?>,
 		controls: {
-			up: '.<?php echo 'btnUp'.$button_id;?>',
-			down: '.<?php echo 'btnDown'.$button_id;?>',			
+			up: '.<?php echo 'btnUp'.esc_html($button_id);?>',
+			down: '.<?php echo 'btnDown'.esc_html($button_id);?>',			
 		},
 		callbacks: {
             before: function(ul, li){
